@@ -1,13 +1,13 @@
 import React from 'react';
 import marked from 'marked';
 
-export var Comment = React.createClass({
-    rawMarkup: function () {
+export class Comment extends React.Component {
+    rawMarkup() {
         var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
         return {__html: rawMarkup};
-    },
+    }
 
-    render: function () {
+    render() {
         return (
             <div className="comment">
                 <h2 className="commentAuthor">
@@ -17,4 +17,4 @@ export var Comment = React.createClass({
             </div>
         );
     }
-});
+}

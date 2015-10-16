@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Comment} from './Comment';
 
-export var CommentList = React.createClass({
-    render: function () {
+export class CommentList extends React.Component {
+    render () {
         var commentNodes = this.props.data.map(comment => {
             return (
                 <Comment author={comment.author}>
@@ -16,4 +16,4 @@ export var CommentList = React.createClass({
             </div>
         );
     }
-});
+}

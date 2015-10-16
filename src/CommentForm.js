@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 
-export var CommentForm = React.createClass({
-    handleSubmit: function (e) {
-        console.log('submitting');
-         e.preventDefault();
+export class CommentForm extends React.Component {
+    handleSubmit (e) {
+        e.preventDefault();
         var author = this.refs.author.value.trim();
         var text = this.refs.text.value.trim();
         if (!text || !author) {
@@ -15,13 +14,9 @@ export var CommentForm = React.createClass({
         this.refs.author.value = '';
         this.refs.text.value = '';
         return;
-    },
+    }
 
-    handleCommentSubmit: function (comment) {
-        // TODO: submit to the server and refresh the list
-    },
-
-    render: function () {
+    render () {
         console.log('render');
         return (
             <form className="commentForm" onSubmit={this.handleSubmit}>
@@ -31,4 +26,4 @@ export var CommentForm = React.createClass({
             </form>
         );
     }
-});
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import $ from 'jQuery';
 import {CommentForm} from './CommentForm';
 import {CommentList} from './CommentList';
 
@@ -8,9 +8,9 @@ export var CommentBox = React.createClass({
         return {data: []};
     },
 
-    loadCommentsFromServer: function() {
+    loadCommentsFromServer() {
         $.ajax({
-            url: 'http://localhost:63342/untitled1/api/comments.json',
+            url: 'http://localhost:63342/hello-react/api/comments.json',
             dataType: 'json',
             cache: false,
             success: function(data) {
@@ -24,7 +24,6 @@ export var CommentBox = React.createClass({
 
     componentDidMount: function() {
         this.loadCommentsFromServer();
-  //      setInterval(this.loadCommentsFromServer, this.props.pollInterval);
     },
 
     render: function () {
