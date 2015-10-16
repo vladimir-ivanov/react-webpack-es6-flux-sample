@@ -1,0 +1,4 @@
+.idea
+react-webpack-es6-flux-sample.iml
+node_modules
+bundle.js
