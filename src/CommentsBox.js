@@ -10,7 +10,7 @@ export var CommentBox = React.createClass({
 
     loadCommentsFromServer() {
         $.ajax({
-            url: 'http://localhost:63342/hello-react/api/comments.json',
+            url: './api/comments.json',
             dataType: 'json',
             cache: false,
             success: function(data) {
