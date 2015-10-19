@@ -1,32 +1,22 @@
 import React from 'react';
-import $ from 'jQuery';
 import {CommentForm} from './CommentForm';
 import {CommentList} from './CommentList';
+import {commentsStore} from './stores/CommentsStore';
 
-export var CommentBox = React.createClass({
-    getInitialState: function() {
-        return {data: []};
-    },
+function getTodoState() {
+    return {
+        data: commentsStore.getAll()
+    };
+}
 
-    loadCommentsFromServer() {
-        $.ajax({
-            url: './api/comments.json',
-            dataType: 'json',
-            cache: false,
-            success: function(data) {
-                this.setState({data: data});
-            }.bind(this),
-            error: function(xhr, status, err) {
-                console.error(this.props.url, status, err.toString());
-            }.bind(this)
-        });
-    },
+export class CommentBox extends React.Component {
+    constructor(props) {
+        super(props);
 
-    componentDidMount: function() {
-        this.loadCommentsFromServer();
-    },
+        this.state = getTodoState();
+    }
 
-    render: function () {
+    render() {
         return (
             <div className="commentBox">
                 <h1>Comments</h1>
@@ -35,4 +25,4 @@ export var CommentBox = React.createClass({
             </div>
         );
     }
-});
+}
